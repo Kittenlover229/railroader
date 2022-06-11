@@ -11,14 +11,12 @@ plot:
   story-bits:
 
     - name: Beginning
-      desc: "
-      The story begins with our (heroes)[Heroes] in (the tavern)[Tavern].
-      They be.
-      "
+      desc: The story begins with our (heroes)[Heroes] in (the tavern)[Tavern]. They be.
       next: Just After Beginning
 
     - name: Just After Beginning
-      desc: "
-      And then something happened
-      "
-      next: Non-existent
+      desc: And then something happened
+      next: End
+
+    - name: End
+      desc: The End.

@@ -16,7 +16,17 @@ def main(filename, *args, **kwargs):
     state = AppState.STARTUP
     with open(filename) as file:
         plot = data_to_plot(yaml.safe_load(file))
-        pprint(plot)
+        current_story = plot.begin
+
+        while True:
+            print(current_story.desc)
+            if len(current_story.nexts) <= 0:
+                break
+
+            for i, option in current_story.nexts.items():
+                print(f"  {i} {option[0] or '*continue*'}")
+            inp = int(input("> ").strip() or 0)
+            current_story = plot.get_story_by_name(current_story.nexts.get(inp)[1])
 
 
 if __name__ == "__main__":
