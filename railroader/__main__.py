@@ -33,12 +33,23 @@ def render_story_to_html(story: StoryBit):
 <html>
     <head>
         <title>{story.name}</title>
+        <style>
+            main {'{'}
+                font-family: "Consolas";
+                font-size: 150%;
+                padding-top: 10%;
+                padding-left: 20%;
+                padding-right: 20%;
+            {'}'}
+        </style>
     </head>
     <body>
-        <p>{story.desc}</p>
-        <ul>
-        {''.join(f'<li><a href="{link}.html">{flavourtext}</a></li>' for flavourtext, link in story.nexts.values())}
-        </ul>
+        <main>
+            <p>{story.desc}</p>
+            <ul>
+            {''.join(f'<li><a href="{link}.html">{flavourtext or "*continue*"}</a></li>' for flavourtext, link in story.nexts.values())}
+            </ul>
+        </main>
     </body>
 </html>
     """.strip()
