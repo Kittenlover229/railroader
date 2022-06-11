@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
 
+class Conflict(BaseException):
+    ...
 
 @dataclass
 class Concept:

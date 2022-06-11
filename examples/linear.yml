@@ -5,15 +5,20 @@ plot:
     - name: Heroes
       desc: Yeah, the cool heroes to save the day
 
+    - name: Tavern
+      desc: And a very cool one too!
+
   story-bits:
 
     - name: Beginning
       desc: "
-      The story begins with out (heroes)[Heroes].
+      The story begins with our (heroes)[Heroes] in (the tavern)[Tavern].
       They be.
       "
+      next: Just After Beginning
 
     - name: Just After Beginning
       desc: "
       And then something happened
       "
+      next: Non-existent
