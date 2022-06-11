@@ -1,4 +1,5 @@
 import argparse
+from typing import Callable
 import yaml
 
 from .models import Plot, StoryBit
@@ -27,6 +28,28 @@ def main_interactive(plot: Plot):
     print("The End.")
 
 
+def get_description_with_highlighted_concepts(
+    story: StoryBit, highlighter: Callable[[str], str]
+):
+    if story.concepts:
+        text = story.desc
+        concepts = list(reversed(story.concepts.keys()))
+
+        acc = ""
+        off = 0
+        while concepts:
+            current = concepts.pop()
+            acc += text[: current[0] - off]
+            acc += highlighter(text[current[0] - off : current[1] - off])
+            text = text[current[1] - off:]
+            off = current[1]
+        acc += text
+
+        return acc
+    else:
+        return story.desc
+
+
 def render_story_to_html(story: StoryBit):
     return (
         f"""
@@ -45,7 +68,7 @@ def render_story_to_html(story: StoryBit):
     </head>
     <body>
         <main>
-            <p>{story.desc}</p>
+            <p>{get_description_with_highlighted_concepts(story, lambda s: f'<b>{s}</b>')}</p>
             <ul>
             {''.join(f'<li><a href="{link}.html">{flavourtext or "*continue*"}</a></li>' for flavourtext, link in story.nexts.values())}
             </ul>
