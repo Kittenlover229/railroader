@@ -1,0 +1,19 @@
+plot:
+  start-at: Beginning
+  
+  concepts:
+    - name: Heroes
+      desc: Yeah, the cool heroes to save the day
+
+  story-bits:
+
+    - name: Beginning
+      desc: "
+      The story begins with out (heroes)[Heroes].
+      They be.
+      "
+
+    - name: Just After Beginning
+      desc: "
+      And then something happened
+      "
