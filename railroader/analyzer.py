@@ -20,6 +20,8 @@ def story_from_dict(raw_story: dict) -> StoryBit:
             # Append it to the list as the default option
             nexts.append(("", nextt))
 
+        nexts.extend((raw_story.get("options") or dict()).items())
+
         return {i: nextt for i, nextt in enumerate(nexts)}
 
     return StoryBit(

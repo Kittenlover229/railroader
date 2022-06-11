@@ -1,0 +1,19 @@
+plot:
+  start-at: Beast Attacks
+
+  concepts:
+    - name: Pikachu
+      desc: an electric rat
+
+  story-bits:
+    - name: Beast Attacks
+      desc: A wild (pikachu)[Pikachu] attacks!
+      options: 
+        Be Scared: "Scared" 
+        Draw The Sword: "Pikachu Dead"
+
+    - name: Scared
+      desc: You are scared by the pikachu. It is sympathetic and leaves.
+
+    - name: Pikachu Dead
+      desc: The rat had a heart attack due to your intimidating weapon unsheathing.

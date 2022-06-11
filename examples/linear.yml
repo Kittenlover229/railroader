@@ -15,8 +15,8 @@ plot:
       next: Just After Beginning
 
     - name: Just After Beginning
-      desc: And then something happened
+      desc: And then something happened.
       next: End
 
     - name: End
-      desc: The End.
+      desc: The story ends here.
